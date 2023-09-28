@@ -1,0 +1,172 @@
+[General]
+Steps = 10
+Camera = "Camera"
+Visibility_Check = "Camera.001"
+Scene = "Scene"
+ShuffleWorld = true
+Mode = "Mods"
+# x_min, y_min, x_max, y_max
+Boundaries = [-0.05,-0.05,1.05,1.05]
+
+[Objects]
+Names= ""
+Ignore= ["Camera","CameraLight", "laubbaum", "nadelbaum", 'Camera.001']
+Lamps = ""
+Camera = "Camera"
+Special= ["laubbaum", "nadelbaum"]        #["shelve4","shelve3","shelve2","shelve1"]
+Decoy= ""
+
+[bolt_horizontal]
+visibility_thresh_factor = 0.8
+[bolt_horizontal.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 1.0]
+value2 = [0.0, 0.01]
+value3 = [0.8, 1.0]
+mode = "hsv"
+
+[bolt_vertical]
+visibility_thresh_factor = 0.8
+[bolt_vertical.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 1.0]
+value2 = [0.0, 0.1]
+value3 = [0.8, 1.0]
+mode = "hsv"
+
+[large_alu_horizontal]
+visibility_thresh_factor = 0.8
+[large_alu_horizontal.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 1.0]
+value2 = [0.0, 0.1]
+value3 = [0.8, 1.0]
+mode = "hsv"
+
+[large_alu_vertical]
+visibility_thresh_factor = 0.8
+[large_alu_vertical.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 1.0]
+value2 = [0.0, 0.1]
+value3 = [0.8, 1.0]
+mode = "hsv"
+
+[large_nut_horizontal]
+visibility_thresh_factor = 0.8
+[large_nut_horizontal.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 1.0]
+value2 = [0.0, 0.1]
+value3 = [0.8, 1.0]
+mode = "hsv"
+
+[large_nut_vertical]
+visibility_thresh_factor = 0.8
+[large_nut_vertical.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 1.0]
+value2 = [0.0, 0.1]
+value3 = [0.8, 1.0]
+mode = "hsv"
+
+[plastic_tube_horizontal]
+visibility_thresh_factor = 0.8
+[plastic_tube_horizontal.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 1.0]
+value2 = [0.0, 0.1]
+value3 = [0.8, 1.0]
+mode = "hsv"
+
+[plastic_tube_verical]
+visibility_thresh_factor = 0.8
+[plastic_tube_verical.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 1.0]
+value2 = [0.0, 0.1]
+value3 = [0.8, 1.0]
+mode = "hsv"
+
+
+[small_alu_horizontal]
+visibility_thresh_factor = 0.8
+[small_alu_horizontal.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 1.0]
+value2 = [0.0, 0.1]
+value3 = [0.8, 1.0]
+mode = "hsv"
+
+[small_alu_vertical]
+visibility_thresh_factor = 0.8
+[small_alu_vertical.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 1.0]
+value2 = [0.0, 0.1]
+value3 = [0.8, 1.0]
+mode = "hsv"
+
+[small_nut_horizontal]
+visibility_thresh_factor = 0.8
+[small_nut_horizontal.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 1.0]
+value2 = [0.0, 0.1]
+value3 = [0.8, 1.0]
+mode = "hsv"
+
+[small_nut_vertical]
+visibility_thresh_factor = 0.8
+[small_nut_vertical.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 1.0]
+value2 = [0.0, 0.1]
+value3 = [0.8, 1.0]
+mode = "hsv"
+
+
+[World]
+Backgrounds = "/mnt/Storage/work/DataGen/DataGenAtWork/hdris/"
+
+[Path]
+PathObject = "Robot"
+
+[Mask]
+Mask_World = true
+
+# White
+Mask_False_Objects = "Barriertape"
+Mask_False_Mat = "Mask_False"
+Mask_False_Color = [1,1,1,1]
+
+# Black
+Mask_True_Objects=""
+Mask_True_Mat = "Mask_True"
+Mask_True_Color = [0,0,0,1]
+
+[Labels]
+bolt_horizontal= 15 
+bolt_vertical= 16 
+large_alu_horizontal= 17 
+large_alu_vertical= 18
+large_nut_horizontal= 19 
+large_nut_vertical= 20 
+plastic_tube_horizontal= 21 
+plastic_tube_verical= 22 
+small_alu_horizontal= 23 
+small_alu_vertical= 24 
+small_nut_horizontal= 25 
+small_nut_vertical= 26 

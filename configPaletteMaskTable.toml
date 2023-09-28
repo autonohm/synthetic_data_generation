@@ -1,0 +1,298 @@
+[General]
+Steps = 800
+Camera = "Camera"
+Visibility_Check = "Camera.001"
+Scene = "Scene"
+ShuffleWorld = true
+CreateYoloLabels = true
+CreateSegmentationMask = true
+AnimateAlongPath = false
+# creates images for every single object and stores them in seperate folders 
+SingleObjects = false
+CheckVisibility = false
+
+[Files]
+Folder = ""
+
+[Config]
+MultiConfig = true
+Folder = "configs_table"
+
+
+[Objects]
+Names= ["Palette", "FrontHoles", "SideHoles", "Fork", "Table", "Paper"]
+Ignore= "" #["Camera","Light", "laubbaum", "nadelbaum", 'Camera.001', "ForkBase", "Fork1", "Fork2", "Palette2", "Palette3"]
+Lamps = ""
+Camera = "Camera"
+Special= ""#["ForkBase"]         #["shelve4","shelve3","shelve2","shelve1"]
+Decoy= ""#["laubbaum", "nadelbaum"] 
+
+[SideHoles]
+id  = 2
+visibility_thresh_factor =0.0
+hide_in_rgb = true
+
+[FrontHoles]
+id = 4
+visibility_thresh_factor =0.0
+hide_in_rgb = true
+
+[Palette]
+id = 3
+visibility_thresh_factor =0.2
+
+[Palette.Position]
+X = [-0.25, 0.25]
+X_normed_to_1m = ""
+X_hide_on_intersection = false
+
+Y = [0.055, 0.067]
+Y_normed_to_1m = ""
+Y_hide_on_intersection = false
+
+Z = [0.7, 0.9]
+Z_normed_to_1m = ""
+Z_hide_on_intersection = false
+
+[Palette.Rotation]
+X = [-0, 0]
+Y = [-30, 30]
+Z = [-0, 0]
+
+
+[Palette.Color]
+NodeName="Mix"
+PropertyName="Color2"
+value1 = [0.0, 1.0]
+value2 = [0.0, 0.2]
+value3 = [0.8, 1.0]
+mode = "hsv"
+
+[Palette.PrincipledBSDF]
+Metallic=[0.0, 0.3]
+Specular=[0.1, 0.9]
+SpecularTint=[0.0, 0.9]
+Roughness=[0.1, 0.9]
+Anisotropic=[0.0, 0.9]
+AnisotropicRotation=[0.0, 0.9]
+Sheen=[0.0, 0.9]
+SheenTint=[0.0, 0.8]
+Clearcoat=[0.0, 0.8]
+ClearcoatRoughness=[0.0, 0.8]
+
+[Table]
+id = 0
+visibility_thresh_factor =0.0
+
+[Table.Position]
+X = [-0.01, 0.01]
+X_normed_to_1m = false
+X_hide_on_intersection = false
+
+Y = [-0.01, 0.2]
+Y_normed_to_1m = false
+Y_hide_on_intersection = false
+
+Z = [-5.0, -2.0]
+Z_normed_to_1m = false
+Z_hide_on_intersection = false
+
+[Table.Rotation]
+X = [3, 8]
+Y = [-30, 30]
+Z = [-2, 2]
+
+[Table.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 1.0]
+value2 = [0.0, 0.2]
+value3 = [0.8, 1.0]
+mode = "hsv"
+
+[Table.PrincipledBSDF]
+Metallic=[0.0, 0.3]
+Specular=[0.1, 0.9]
+SpecularTint=[0.0, 0.9]
+Roughness=[0.1, 0.9]
+Anisotropic=[0.0, 0.9]
+AnisotropicRotation=[0.0, 0.9]
+Sheen=[0.0, 0.9]
+SheenTint=[0.0, 0.8]
+Clearcoat=[0.0, 0.8]
+ClearcoatRoughness=[0.0, 0.8]
+
+[Paper]
+id = 0
+
+[Paper.Position]
+X = [-0.05, 0.05]
+X_normed_to_1m = false
+X_hide_on_intersection = false
+
+Y = [0.035, 0.045]
+Y_normed_to_1m = false
+Y_hide_on_intersection = false
+
+Z = [-0.05, 0.05]
+Z_normed_to_1m = false
+Z_hide_on_intersection = false
+
+[Paper.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+#NodeName="Mix"
+#PropertyName="Color2"
+value1 = [0.25, 0.5]#[0.0, 1.0]#[0.03, 0.1]
+value2 = [0.3, 0.8]#[0.5, 0.8]
+value3 = [0.2, 0.5]#[0.4, 0.8]
+mode = "hsv"
+
+[Paper.PrincipledBSDF]
+Metallic=[0.0, 0.3]
+Specular=[0.1, 0.9]
+SpecularTint=[0.0, 0.9]
+Roughness=[0.4, 0.9]
+Anisotropic=[0.0, 0.9]
+AnisotropicRotation=[0.0, 0.9]
+Sheen=[0.0, 0.9]
+SheenTint=[0.0, 0.8]
+Clearcoat=[0.0, 0.8]
+ClearcoatRoughness=[0.0, 0.8]
+
+[Fork]
+id = 1
+visibility_thresh_factor =0.2
+
+[Fork.Position]
+X = [-0.04, 0.04]
+X_normed_to_1m = false
+X_hide_on_intersection = false
+
+Y = [-0.11, -0.099]
+Y_normed_to_1m = false
+Y_hide_on_intersection = false
+
+Z = [-0.65, -0.55]
+Z_normed_to_1m = false
+Z_hide_on_intersection = false
+
+[Fork.Rotation]
+X = [0, 6]
+Y = [-8, 8]
+Z = [-2, 2]
+
+
+[Fork.Color]
+NodeName="Mix"
+PropertyName="Color2"
+value1 = [0.0, 1.0]
+value2 = [0.0, 0.2]
+value3 = [0.8, 1.0]
+mode = "hsv"
+
+[Fork.PrincipledBSDF]
+Metallic=[0.0, 0.3]
+Specular=[0.1, 0.9]
+SpecularTint=[0.0, 0.9]
+Roughness=[0.1, 0.9]
+Anisotropic=[0.0, 0.9]
+AnisotropicRotation=[0.0, 0.9]
+Sheen=[0.0, 0.9]
+SheenTint=[0.0, 0.8]
+Clearcoat=[0.0, 0.8]
+ClearcoatRoughness=[0.0, 0.8]
+
+[laubbaum]
+
+[laubbaum.Position]
+X = [-0.6, 0.6]
+X_normed_to_1m = "Z"
+X_hide_on_intersection = false
+
+Y = [-0.8, 0.5]
+Y_normed_to_1m = "Z"
+Y_hide_on_intersection = false
+
+Z = [-5.0, -0.0]
+Z_normed_to_1m = false
+Z_hide_on_intersection = false
+
+[laubbaum.Rotation]
+X = [-45, 45]
+Y = [-180, 180]
+Z = [-25, 25]
+
+[laubbaum.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 1.0]
+value2 = [0.0, 0.5]
+value3 = [0.2, 1.0]
+mode = "hsv"
+
+[laubbaum.PrincipledBSDF]
+Metallic=[0.0, 0.8]
+Specular=[0.1, 0.9]
+SpecularTint=[0.0, 0.9]
+Roughness=[0.1, 0.9]
+Anisotropic=[0.0, 0.9]
+AnisotropicRotation=[0.0, 0.9]
+Sheen=[0.0, 0.9]
+SheenTint=[0.0, 0.8]
+Clearcoat=[0.0, 0.8]
+ClearcoatRoughness=[0.0, 0.8]
+
+
+[nadelbaum]
+
+[nadelbaum.Position]
+X = [-0.6, 0.6]
+X_normed_to_1m = "Z"
+X_hide_on_intersection = false
+
+Y = [-0.8, 0.5]
+Y_normed_to_1m = "Z"
+Y_hide_on_intersection = false
+
+Z = [-5.0, -0.0]
+Z_normed_to_1m = false
+Z_hide_on_intersection = false
+
+[nadelbaum.Rotation]
+X = [-45, 45]
+Y = [-180, 180]
+Z = [-25, 25]
+
+[nadelbaum.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 1.0]
+value2 = [0.0, 0.5]
+value3 = [0.2, 1.0]
+mode = "hsv"
+
+[nadelbaum.PrincipledBSDF]
+Metallic=[0.0, 0.8]
+Specular=[0.1, 0.9]
+SpecularTint=[0.0, 0.9]
+Roughness=[0.1, 0.9]
+Anisotropic=[0.0, 0.9]
+AnisotropicRotation=[0.0, 0.9]
+Sheen=[0.0, 0.9]
+SheenTint=[0.0, 0.8]
+Clearcoat=[0.0, 0.8]
+ClearcoatRoughness=[0.0, 0.8]
+
+
+[World]
+Backgrounds = "/home/vision/Study/DataGenPalettes/hdris/"
+
+[Mask]
+Mask_World = true
+
+[Labels]
+Palette= 2 
+#FrontHoles = 3
+#SideHoles = 4
+#Fork = 5 
