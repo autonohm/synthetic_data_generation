@@ -65,28 +65,28 @@ def calcVisibilityThresh(obj, config):
 
 def hideInvisibleObjects(scene, camera_object, visibility_camera, mesh_objects, config):
 	print ("visibility checks disabled")
-	for object in mesh_objects:
-		if object.hide_render == True:
-			print(object.name + " is hidden - not labeling this and hiding all children!")
-			hide_obj_and_children(object)
-			continue
+	# for object in mesh_objects:
+	# 	if object.hide_render == True:
+	# 		print(object.name + " is hidden - not labeling this and hiding all children!")
+	# 		hide_obj_and_children(object)
+	# 		continue
 		
 		
 		# if "visibility_thresh_factor" in config[object.name]:
-		# 	checkVisibility.select_camera_view(scene, visibility_camera, object)
-		# 	visibility = checkVisibility.check_visibility(scene, visibility_camera, object)
-		# 	checkVisibility.restore_camera(scene, camera_object)
+		#   checkVisibility.select_camera_view(scene, visibility_camera, object)
+		#   visibility = checkVisibility.check_visibility(scene, visibility_camera, object)
+		#   checkVisibility.restore_camera(scene, camera_object)
 
-		# 	# Objekte werden auch zufällig ausgeblendet sonst gibts chaos
-		# 	#zufall_hide = random.uniform(0.0, 1.0)
-		# 	#if zufall_hide > 0.5:
-		# 		#hide_obj_and_children(object)
-		# 		#continue 
+		#   # Objekte werden auch zufällig ausgeblendet sonst gibts chaos
+		#   #zufall_hide = random.uniform(0.0, 1.0)
+		#   #if zufall_hide > 0.5:
+		#   	#hide_obj_and_children(object)
+		#   	#continue 
 
-		# 	if visibility <  config[object.name]["visibility_thresh_factor"]:
+		#   if visibility <  config[object.name]["visibility_thresh_factor"]:
 		
-		# 		print(object.name, "visibilitiy is ", visibility, " -> not visible in render - HIDING this and all children")
-		# 		hide_obj_and_children(object)
+		#   	print(object.name, "visibilitiy is ", visibility, " -> not visible in render - HIDING this and all children")
+		#   	hide_obj_and_children(object)
 
 # ____________________________________________ Create image
 
@@ -122,7 +122,7 @@ def createYoloTxtFile(scene, camera_object, visibility_camera, mesh_objects, con
 
 				else: 
 					hide_obj_and_children(object)
-					print("Hiding ", object.name, " and all children")
+					print("Hiding ", object.name, " and all children in YoloTXT_File")
 
 
 def createBopTxtFile(scene, camera_object, visibility_camera, mesh_objects, config, path="/home/data/", file_prefix="bop", bounds=None, store_in_one_file = True, K = None):
@@ -440,86 +440,87 @@ def createObjectMods(objects, config):
 	distance_z = random.uniform(0.4, 0.8)
 	modZPos = ShuffleZPos([-distance_z, -distance_z], objects, True, False)
 
-	fov_x_rad = (40/2)*(pi/180) #53
-	fov_y_rad =   (33/2)*(pi/180)  #41
+	fov_x_rad = (53.3/2)*(pi/180) #53
+	print ("winkel x in rad", fov_x_rad)
+	fov_y_rad =   (40.4/2)*(pi/180)  #41
 
 	visible_range_x = numpy.arctan(fov_x_rad)* distance_z
+	print ("visible range x:", visible_range_x, "z_pos: ", distance_z)
 	visible_range_y = (3/4) * visible_range_x
 
-	area_factor = 3
+	object_position_x = visible_range_x/2
+	object_position_y = visible_range_y/2
+	print( "object position x:", object_position_x)
 
-	area =  area_factor * visible_range_x * visible_range_y
-	range_x = numpy.sqrt ((8/3)* area )
-	range_y = (3/4)*range_x
-	
-	
-	for obj in objects:
+	obj_list_random = sorted(objects, key=lambda x: random.random())
+	number_of_objects = len(obj_list_random)
+	objects_to_place = 4
+	already_placed_objects = 0
+	#lenght of the largest object is 20,5 cm
+
+
+	for obj in obj_list_random:
+		x= random.uniform(100,1000)
+		y = x
+
 		obj_list = list()
 		obj_list.append(obj)
 
-		random_x = random.uniform(-range_x, range_x)
-		random_y = random.uniform(-range_y, range_y)
-
 		modZPos = ShuffleZPos([-distance_z, -distance_z], obj_list, True, False)
 		mods.append(modZPos)
+
 		
-		modXPos = ShuffleXPos([random_x, random_x], obj_list, True, False)
+		if already_placed_objects==0:
+			x = -object_position_x; y = object_position_y; 
+			
+			print( "Placed Object NR.1:", obj.name)
+		elif already_placed_objects==1:
+			x = object_position_x; y = object_position_y; 
+			print( "Placed Object NR.2:", obj.name)
+		elif already_placed_objects==2:
+			x = -object_position_x; y = -object_position_y; 
+			print( "Placed Object NR.3:", obj.name)
+		elif already_placed_objects==3:
+			x = + object_position_x; y = - object_position_y
+			print( "Placed Object NR.4:", obj.name)
+		already_placed_objects+=1
+			
+		#Debug Output	
+		#print ("placing: ", obj.name,"already_placed_objects:", already_placed_objects, "x:", x, " y:",y)
+			
+		
+		modXPos = ShuffleXPos([x, x], obj_list, True, False)
 		mods.append(modXPos)
 
-		if (abs(random_x)> visible_range_x):
-			#mods.pop()
-			#modXPos = ShuffleXPos([100, 100], obj_list, True, False)
-			#mods.append(modXPos)
-			print ( "Hiding ", obj.name, " Object because its on the edge of the visible are")
-			#continue
-
-		modYPos = ShuffleYPos([random_y, random_y], obj_list, True, False)
+		modYPos = ShuffleYPos([y, y], obj_list, True, False)
 		mods.append(modYPos)
 		
-		if (abs(random_y)> visible_range_y):
-			mods.pop() 
-			#modYPos = ShuffleYPos([100, 100], obj_list, True, False)
-			#mods.append(modYPos)
-			print ( "Hiding ", obj.name, " Object because its on the edge of the visible area")
-			#continue
+
+		# if "Rotation" in config[obj.name]:
+
+		# 	print(config[obj.name]["Rotation"])
+		# 	try:
+		# 		if config[obj.name]["Rotation"]["mode"] == "Quaternion":
+		# 				modQuatRot = ShuffleRotQuaternion(config[obj.name]["Rotation"]["X"],config[obj.name]["Rotation"]["Y"], config[obj.name]["Rotation"]["Z"], obj_list, False)
+		# 				mods.append(modQuatRot)
+		# 				print("Using quaternions for ", obj.name)
+		# 	except:
+		# 		# modZRot = ShuffleZRotEuler([0,0], obj_list, False)
+		# 		# mods.append(modZRot)
+		# 		# modYRot = ShuffleYRotEuler([0,0], obj_list, False)
+		# 		# mods.append(modYRot)
+		# 		# modXRot = ShuffleXRotEuler([0,0], obj_list, False)
+		# 		# mods.append(modXRot)
+		# 		# print("Using axis rotation for ", obj.name)
+		# 		#modZRot = ShuffleZRotEuler(config[obj.name]["Rotation"]["Z"], obj_list, False)
+		# 		#mods.append(modZRot)
+		# 		modYRot = ShuffleYRotEuler(config[obj.name]["Rotation"]["Y"], obj_list, False)
+		# 		mods.append(modYRot)
+		# 		modXRot = ShuffleXRotEuler(config[obj.name]["Rotation"]["X"], obj_list, False)
+		# 		mods.append(modXRot)
+		# 		print("Using axis rotation for ", obj.name)
 
 		
-
-		if "Rotation" in config[obj.name]:
-
-			print(config[obj.name]["Rotation"])
-			try:
-				if config[obj.name]["Rotation"]["mode"] == "Quaternion":
-						modQuatRot = ShuffleRotQuaternion(config[obj.name]["Rotation"]["X"],config[obj.name]["Rotation"]["Y"], config[obj.name]["Rotation"]["Z"], obj_list, False)
-						mods.append(modQuatRot)
-						print("Using quaternions for ", obj.name)
-			except:
-				# modZRot = ShuffleZRotEuler([0,0], obj_list, False)
-				# mods.append(modZRot)
-				# modYRot = ShuffleYRotEuler([0,0], obj_list, False)
-				# mods.append(modYRot)
-				# modXRot = ShuffleXRotEuler([0,0], obj_list, False)
-				# mods.append(modXRot)
-				# print("Using axis rotation for ", obj.name)
-				#modZRot = ShuffleZRotEuler(config[obj.name]["Rotation"]["Z"], obj_list, False)
-				#mods.append(modZRot)
-				modYRot = ShuffleYRotEuler(config[obj.name]["Rotation"]["Y"], obj_list, False)
-				mods.append(modYRot)
-				modXRot = ShuffleXRotEuler(config[obj.name]["Rotation"]["X"], obj_list, False)
-				mods.append(modXRot)
-				print("Using axis rotation for ", obj.name)
-
-		# if "Position" in config[obj.name]:
-				
-		# 	modZPos = ShuffleZPos(config[obj.name]["Position"]["Z"], obj_list, True, False, config[obj.name]["Position"]["Z_normed_to_1m"])
-		# 	mods.append(modZPos)
-				
-			
-
-		# 	modXPos = ShuffleXPos(config[obj.name]["Position"]["X"], obj_list, True, False, config[obj.name]["Position"]["X_normed_to_1m"])
-		# 	mods.append(modXPos)
-		# 	modYPos = ShuffleYPos(config[obj.name]["Position"]["Y"], obj_list, True, False, config[obj.name]["Position"]["Y_normed_to_1m"])
-		# 	mods.append(modYPos)
 
 		if "PrincipledBSDF" in config[obj.name]:
 			
@@ -596,32 +597,32 @@ def createObjectMods(objects, config):
 	
 	return mods
 
-def createMaskMods(objects, path, config):
-	mods = list()
+# def createMaskMods(objects, path, config):
+#   mods = list()
 
-	index_dict = {}
-	for obj in objects:
-			print(obj.name)
-			print(obj.name, " ID ", config[obj.name]["id"])
-			index_dict[obj.name] = config[obj.name]["id"]
+#   index_dict = {}
+#   for obj in objects:
+#   		print(obj.name)
+#   		print(obj.name, " ID ", config[obj.name]["id"])
+#   		index_dict[obj.name] = config[obj.name]["id"]
 	
-	modMask = MaskComposition(objects, index_dict, path = path)
-	mods.append(modMask)
+#   modMask = MaskComposition(objects, index_dict, path = path)
+#   mods.append(modMask)
 
-	for obj in objects:
-			obj_list = list()
-			obj_list.append(obj)
-			try:
-				if config[obj.name]["hide_in_rgb"]:
-					#print("Hiding ", obj.name, " in RGB ", config[obj.name]["hide_in_rgb"])
-					print("Hiding ", obj.name, " in RGB ")
-					modHideInRgb = HideInRGB(obj_list)
-					mods.append(modHideInRgb)
-			except:
-				pass
+#   for obj in objects:
+#   		obj_list = list()
+#   		obj_list.append(obj)
+#   		try:
+#   			if config[obj.name]["hide_in_rgb"]:
+#   				#print("Hiding ", obj.name, " in RGB ", config[obj.name]["hide_in_rgb"])
+#   				print("Hiding ", obj.name, " in RGB ")
+#   				modHideInRgb = HideInRGB(obj_list)
+#   				mods.append(modHideInRgb)
+#   		except:
+#   			pass
 			
 
-	return mods
+#   return mods
 
 def createWorldMods(config):
 	world_obj= list()
@@ -681,10 +682,10 @@ def batch_render(scene, camera, visibility_camera_object, lamp, objects, decoys,
 	
 	maskMods = list()
 
-	if mask:
-		maskMods = createMaskMods(objects, seg_path, config)
-		for maskMod in maskMods:
-			maskMod.performPreProcessing()
+	# if mask:
+	#   maskMods = createMaskMods(objects, seg_path, config)
+	#   for maskMod in maskMods:
+	#   	maskMod.performPreProcessing()
 	
 	#available_steps = range(get_latest_index(render_path), steps+1)
 	available_steps = range(get_latest_index(render_path), steps+1)

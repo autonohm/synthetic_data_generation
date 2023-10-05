@@ -1,5 +1,5 @@
 [General]
-Steps = 4000
+Steps = 10
 Camera = "Camera"
 Visibility_Check = "Camera.001"
 Scene = "Scene"
@@ -72,7 +72,7 @@ Clearcoat=[0.0, 0.8]
 ClearcoatRoughness=[0.0, 0.8]
 
 [workstation]
-id = 16
+id = 18
 ShuffleMaterials = true
 
 
@@ -300,11 +300,11 @@ SheenTint=[0.0, 0.2]
 Clearcoat=[0.0, 0.8]
 ClearcoatRoughness=[0.0, 0.8]
 
-[bolt]
+[screw]
 id = 5
 visibility_thresh_factor = 0.1
 
-[bolt.Position]
+[screw.Position]
 X = [-0.65, 0.65]
 X_normed_to_1m = 'Z'
 X_hide_on_intersection = true
@@ -317,12 +317,12 @@ Z = [-0.8, -0.5]
 Z_normed_to_1m = ''
 Z_hide_on_intersection = true
 
-[bolt.Rotation]
+[screw.Rotation]
 X = [-180, 180]
 Y = [-5, 5]
 Z = [-180, 180]
 
-[bolt.Color]
+[screw.Color]
 NodeName="Principled BSDF"
 PropertyName="Base Color"
 value1 = [0.0, 0.0]
@@ -331,7 +331,7 @@ value3 = [0.0, 0.2]
 mode = "hsv"
 material_name = ""
 
-[bolt.PrincipledBSDF]
+[screw.PrincipledBSDF]
 Metallic=[0.6, 1.0]
 Specular=[0.2, 0.6]
 SpecularTint=[0.0, 0.6]
@@ -429,295 +429,44 @@ SheenTint=[0.0, 0.2]
 Clearcoat=[0.0, 0.8]
 ClearcoatRoughness=[0.0, 0.8]
 
-[plastic_tube]
+[axis2]
 id = 8
-visibility_thresh_factor = 0.4
+visibility_thresh_factor = 0.2
 
-[plastic_tube.Position]
-X = [-0.65, 0.65]
-X_normed_to_1m = 'Z'
-X_hide_on_intersection = true
-
-Y = [-0.35, 0.35]
-Y_normed_to_1m = 'Z'
-Y_hide_on_intersection = true
-
-Z = [-0.8, -0.5]
-Z_normed_to_1m = ''
-Z_hide_on_intersection = true
-
-[plastic_tube.Rotation]
-X = [-10, 10]
-Y = [-5, 5]
-Z = [-180, 180]
-
-[plastic_tube.Color]
-NodeName="Principled BSDF"
-PropertyName="Base Color"
-value1 = [0.0, 0.0]
-value2 = [0.0, 0.0]
-value3 = [0.0, 0.2]
-mode = "hsv"
-material_name = ""
-
-[plastic_tube.PrincipledBSDF]
-Metallic=[0.0, 0.3]
-Specular=[0.0, 0.2]
-SpecularTint=[0.1, 0.4]
-Roughness=[0.4, 0.9]
-Anisotropic=[0.0, 0.9]
-AnisotropicRotation=[0.0, 0.9]
-Sheen=[0.0, 0.2]
-SheenTint=[0.2, 0.5]
-Clearcoat=[0.05, 0.2]
-ClearcoatRoughness=[0.0, 0.8]
-
-[bearing_box]
+[bearing2]
 id = 9
 visibility_thresh_factor = 0.2
 
-[bearing_box.Position]
-X = [-0.65, 0.65]
-X_normed_to_1m = 'Z'
-X_hide_on_intersection = true
-
-Y = [-0.35, 0.35]
-Y_normed_to_1m = 'Z'
-Y_hide_on_intersection = true
-
-Z = [-0.8, -0.5]
-Z_normed_to_1m = ''
-Z_hide_on_intersection = true
-
-[bearing_box.Rotation]
-X = [-10, 10]
-Y = [-5, 5]
-Z = [-180, 180]
-
-[bearing_box.Color]
-NodeName="Mix"
-PropertyName="Color2"
-value1 = [0.0, 0.0]
-value2 = [0.0, 0.0]
-value3 = [0.7, 1.0]
-mode = "hsv"
-material_name = ""
-
-[bearing_box.PrincipledBSDF]
-Metallic=[0.7, 0.9]
-Specular=[0.2, 0.6]
-SpecularTint=[0.0, 0.6]
-Roughness=[0.1, 0.3]
-Anisotropic=[0.0, 0.9]
-AnisotropicRotation=[0.0, 0.9]
-Sheen=[0.0, 0.2]
-SheenTint=[0.0, 0.2]
-Clearcoat=[0.0, 0.8]
-ClearcoatRoughness=[0.0, 0.8]
-
-[bearing_box.BrickTexture.Scale]
-NodeName="Brick Texture"
-PropertyName="Scale"
-value = [50.0, 200.0]
-
-[bearing_box.BrickTexture.Size]
-NodeName="Brick Texture"
-PropertyName="Mortar Size"
-value = [0.0, 1.0]
-
-[bearing_box.Brick.Smooth]
-NodeName="Brick Texture"
-PropertyName="Mortar Smooth"
-value = [0.0,5.0]
-
-[bearing_box.BrickTexture.Height]
-NodeName="Brick Texture"
-PropertyName="Row Height"
-value = [0.1, 1.0]
-
-
-[bearing_box.Mapping.Rotation]
-0 = [0, 360]
-1 = [0, 360]
-2 = [0, 360]
-
-[bearing_box.Mapping.Location]
-1 = [0.0, 100.0]
-
-[bearing]
-id = 10
+[housing]
+id= 10
 visibility_thresh_factor = 0.2
 
-[bearing.Position]
-X = [-0.65, 0.65]
-X_normed_to_1m = 'Z'
-X_hide_on_intersection = true
-
-Y = [-0.35, 0.35]
-Y_normed_to_1m = 'Z'
-Y_hide_on_intersection = true
-
-Z = [-0.8, -0.5]
-Z_normed_to_1m = ''
-Z_hide_on_intersection = true
-
-[bearing.Rotation]
-X = [-10, 10]
-Y = [-5, 5]
-Z = [-180, 180]
-
-[bearing.Color]
-NodeName="Mix"
-PropertyName="Color2"
-value1 = [0.0, 0.0]
-value2 = [0.0, 0.0]
-value3 = [0.7, 1.0]
-mode = "hsv"
-material_name = ""
-
-[bearing.PrincipledBSDF]
-Metallic=[0.7, 0.9]
-Specular=[0.1, 0.5]
-SpecularTint=[0.0, 0.6]
-Roughness=[0.2, 0.5]
-Anisotropic=[0.0, 0.9]
-AnisotropicRotation=[0.0, 0.9]
-Sheen=[0.0, 0.2]
-SheenTint=[0.0, 0.2]
-Clearcoat=[0.0, 0.8]
-ClearcoatRoughness=[0.0, 0.8]
-
-[axis]
+[motor2]
 id = 11
 visibility_thresh_factor = 0.2
 
-[axis.Position]
-X = [-0.65, 0.65]
-X_normed_to_1m = 'Z'
-X_hide_on_intersection = true
-
-Y = [-0.35, 0.35]
-Y_normed_to_1m = 'Z'
-Y_hide_on_intersection = true
-
-Z = [-0.8, -0.5]
-Z_normed_to_1m = ''
-Z_hide_on_intersection = true
-
-[axis.Rotation]
-X = [-10, 10]
-Y = [-5, 5]
-Z = [-180, 180]
-
-[axis.Color]
-NodeName="Mix"
-PropertyName="Color2"
-value1 = [0.0, 0.0]
-value2 = [0.0, 0.0]
-value3 = [0.7, 1.0]
-mode = "hsv"
-material_name = ""
-
-[axis.PrincipledBSDF]
-Metallic=[0.7, 0.9]
-Specular=[0.2, 0.6]
-SpecularTint=[0.0, 0.6]
-Roughness=[0.1, 0.4]
-Anisotropic=[0.0, 0.9]
-AnisotropicRotation=[0.0, 0.9]
-Sheen=[0.0, 0.2]
-SheenTint=[0.0, 0.2]
-Clearcoat=[0.0, 0.8]
-ClearcoatRoughness=[0.0, 0.8]
-
-[distance_tube]
+[spacer]
 id = 12
-visibility_thresh_factor = 0.4
+visibility_thresh_factor = 0.2
 
-[distance_tube.Position]
-X = [-0.65, 0.65]
-X_normed_to_1m = 'Z'
-X_hide_on_intersection = true
-
-Y = [-0.35, 0.35]
-Y_normed_to_1m = 'Z'
-Y_hide_on_intersection = true
-
-Z = [-0.8, -0.5]
-Z_normed_to_1m = ''
-Z_hide_on_intersection = true
-
-[distance_tube.Rotation]
-X = [-10, 10]
-Y = [-5, 5]
-Z = [-180, 180]
-
-[distance_tube.Color]
-NodeName="Mix"
-PropertyName="Color2"
-value1 = [0.0, 0.0]
-value2 = [0.0, 0.0]
-value3 = [0.7, 1.0]
-mode = "hsv"
-material_name = ""
-
-[distance_tube.PrincipledBSDF]
-Metallic=[0.6, 0.9]
-Specular=[0.2, 0.6]
-SpecularTint=[0.0, 0.6]
-Roughness=[0.2, 0.4]
-Anisotropic=[0.0, 0.9]
-AnisotropicRotation=[0.0, 0.9]
-Sheen=[0.0, 0.2]
-SheenTint=[0.0, 0.2]
-Clearcoat=[0.0, 0.8]
-ClearcoatRoughness=[0.0, 0.8]
-
-[motor]
+[screwdriver]
 id = 13
-visibility_thresh_factor = 0.3
+visibility_thresh_factor = 0.2
 
-[motor.Position]
-X = [-0.65, 0.65]
-X_normed_to_1m = 'Z'
-X_hide_on_intersection = true
+[wrench]
+id = 14
+visibility_thresh_factor = 0.2
 
-Y = [-0.35, 0.35]
-Y_normed_to_1m = 'Z'
-Y_hide_on_intersection = true
+[drill]
+id = 15
+visibility_thresh_factor = 0.2
 
-Z = [-0.8, -0.5]
-Z_normed_to_1m = ''
-Z_hide_on_intersection = true
-
-[motor.Rotation]
-X = [-10, 10]
-Y = [-5, 5]
-Z = [-180, 180]
-
-[motor.Color]
-NodeName="Mix"
-PropertyName="Color2"
-value1 = [0.0, 0.0]
-value2 = [0.0, 0.0]
-value3 = [0.0, 0.1]
-mode = "hsv"
-material_name = ""
-
-[motor.PrincipledBSDF]
-Metallic=[0.0, 0.9]
-Specular=[0.1, 0.4]
-SpecularTint=[0.1, 0.4]
-Roughness=[0.7, 1.0]
-Anisotropic=[0.0, 0.9]
-AnisotropicRotation=[0.0, 0.9]
-Sheen=[0.0, 0.2]
-SheenTint=[0.2, 0.5]
-Clearcoat=[0.05, 0.2]
-ClearcoatRoughness=[0.0, 0.8]
+[allenkey]
+id = 16
+visibility_thresh_factor = 0.2
 
 [blue_container]
-id = 14
+id = 17
 visibility_thresh_factor = 0.6
 
 [blue_container.Position]
@@ -760,7 +509,7 @@ Clearcoat=[0.05, 0.2]
 ClearcoatRoughness=[0.0, 0.8]
 
 [red_container]
-id = 15
+id = 18
 visibility_thresh_factor = 0.6
 
 [red_container.Position]
@@ -829,16 +578,19 @@ small_black_alu= 0
 small_grey_alu= 1
 large_black_alu= 2 
 large_grey_alu= 3
-bolt= 4
+screw= 4
 small_nut= 5 
 large_nut= 6 
-plastic_tube= 7 
-bearing_box= 8
-bearing= 9
-axis= 10
-distance_tube= 11 
-motor= 12
-blue_container= 13 
-red_container= 14
-workstation = 15
+axis2= 7
+bearing2= 8
+housing= 9
+motor2= 10
+spacer= 11
+screwdriver= 12
+wrench = 13
+drill = 14
+allenkey = 15
+blue_container= 16 
+red_container= 17
+workstation = 18
 
