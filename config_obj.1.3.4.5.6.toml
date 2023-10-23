@@ -1,0 +1,582 @@
+[General]
+Steps = 4000
+Camera = "Camera"
+Visibility_Check = "Camera.001"
+Scene = "Scene"
+ShuffleWorld = true
+CreateYoloLabels = true
+CreateSegmentationMask = true
+AnimateAlongPath = false
+# creates images for every single object and stores them in seperate folders 
+SingleObjects = false
+CheckVisibility = true
+
+[Files]
+Folder = "Test_CPU"
+
+[Config]
+MultiConfig = false
+Folder = "configs"
+
+
+[Objects]
+Names= ""
+Ignore= ["Camera","CameraLight", 'Camera.001', 'workstation_border','Plane','Area','Plane.001']
+Lamps = ""
+Camera = "Camera"
+Special= ""#["workstation"]         #["shelve4","shelve3","shelve2","shelve1"]
+Decoy= ""#["nadelbaum"]  #"[laubbaum", "nadelbaum", "workstation"] 
+
+[laubbaum]
+[laubbaum.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 1.0]
+value2 = [0.0, 1.0]
+value3 = [0.0, 1.0]
+mode = "hsv"
+material_name = ""
+
+[laubbaum.PrincipledBSDF]
+Metallic=[0.0, 0.6]
+Specular=[0.1, 0.9]
+SpecularTint=[0.1, 0.9]
+Roughness=[0.1, 0.9]
+Anisotropic=[0.0, 0.9]
+AnisotropicRotation=[0.0, 0.9]
+Sheen=[0.0, 0.9]
+SheenTint=[0.0, 0.8]
+Clearcoat=[0.0, 0.8]
+ClearcoatRoughness=[0.0, 0.8]
+
+[laubbaum.Rotation]
+X = [-5, 5]
+Y = [-5, 5]
+Z = [-10, 10]
+
+[nadelbaum]
+[nadelbaum.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 1.0]
+value2 = [0.0, 1.0]
+value3 = [0.0, 1.0]
+mode = "hsv"
+material_name = ""
+
+[nadelbaum.PrincipledBSDF]
+Metallic=[0.0, 0.6]
+Specular=[0.1, 0.9]
+SpecularTint=[0.1, 0.9]
+Roughness=[0.1, 0.9]
+Anisotropic=[0.0, 0.9]
+AnisotropicRotation=[0.0, 0.9]
+Sheen=[0.0, 0.9]
+SheenTint=[0.0, 0.8]
+Clearcoat=[0.0, 0.8]
+ClearcoatRoughness=[0.0, 0.8]
+
+[nadelbaum.Rotation]
+X = [-5, 5]
+Y = [-5, 5]
+Z = [-45, 45]
+
+
+[workstation]
+id = 18
+ShuffleMaterials = true
+
+
+[workstation.Disappear]
+value = 0.2
+
+[workstation.Position]
+X = [-1.0, -0.7]
+X_normed_to_1m = ''
+X_hide_on_intersection = true
+
+Y = [0.55, 0.0]
+Y_normed_to_1m = ''
+Y_hide_on_intersection = true
+
+Z = [-0.9, -0.82]
+Z_normed_to_1m = ''
+Z_hide_on_intersection = true
+
+[workstation.Rotation]
+X = [-5, 5]
+Y = [-5, 5]
+Z = [-10, 10]
+
+
+[workstation.Color.clear_table]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 1.0]
+value2 = [0.0, 0.05]
+value3 = [0.8, 1.0]
+mode = "hsv"
+material_name = "bump_table"
+
+[workstation.Color.bump_table]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 1.0]
+value2 = [0.0, 0.05]
+value3 = [0.8, 1.0]
+mode = "hsv"
+material_name = "clear_table"
+
+[workstation.PrincipledBSDF]
+Metallic=[0.0, 0.3]
+Specular=[0.2, 0.6]
+SpecularTint=[0.0, 0.6]
+Roughness=[0.3, 0.9]
+Anisotropic=[0.0, 0.9]
+AnisotropicRotation=[0.0, 0.9]
+Sheen=[0.0, 0.2]
+SheenTint=[0.0, 0.8]
+Clearcoat=[0.0, 0.8]
+ClearcoatRoughness=[0.0, 0.8]
+
+[small_black_alu]
+id = 1
+visibility_thresh_factor = 0.2
+
+[small_black_alu.Position]
+X = [-0.65, 0.65]
+X_normed_to_1m = 'Z'
+X_hide_on_intersection = true
+
+Y = [-0.35, 0.35]
+Y_normed_to_1m = 'Z'
+Y_hide_on_intersection = true
+
+Z = [-0.8, -0.5]
+Z_normed_to_1m = ''
+Z_hide_on_intersection = true
+
+[small_black_alu.Rotation]
+X = [-0, 0]
+Y = [0, 0]
+Z = [-180, 180]
+
+[small_black_alu.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 360.0]
+value2 = [0.0, 0.2]
+value3 = [0.0, 0.2]
+mode = "hsv"
+material_name = ""
+
+[small_black_alu.PrincipledBSDF]
+Metallic=[0.4, 0.9]
+Specular=[0.2, 0.6]
+SpecularTint=[0.0, 0.6]
+Roughness=[0.3, 1.0]
+Anisotropic=[0.0, 0.9]
+AnisotropicRotation=[0.0, 0.9]
+Sheen=[0.0, 0.2]
+SheenTint=[0.0, 0.2]
+Clearcoat=[0.0, 0.8]
+ClearcoatRoughness=[0.0, 0.8]
+
+[small_grey_alu]
+id = 2
+visibility_thresh_factor = 0.2
+
+[small_grey_alu.Position]
+X = [-0.65, 0.65]
+X_normed_to_1m = 'Z'
+X_hide_on_intersection = true
+
+Y = [-0.35, 0.35]
+Y_normed_to_1m = 'Z'
+Y_hide_on_intersection = true
+
+Z = [-6.0, -5.0]
+Z_normed_to_1m = ''
+Z_hide_on_intersection = true
+
+[small_grey_alu.Rotation]
+X = [-180, 180]
+Y = [-5, 5]
+Z = [-180, 180]
+
+[small_grey_alu.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 360.0]
+value2 = [0.0, 0.05]
+value3 = [0.8, 1.0]
+mode = "hsv"
+material_name = ""
+
+[small_grey_alu.PrincipledBSDF]
+Metallic=[0.5, 0.9]
+Specular=[0.2, 0.6]
+SpecularTint=[0.0, 0.6]
+Roughness=[0.55, 0.7]
+Anisotropic=[0.0, 0.9]
+AnisotropicRotation=[0.0, 0.9]
+Sheen=[0.0, 0.2]
+SheenTint=[0.0, 0.2]
+Clearcoat=[0.0, 0.8]
+ClearcoatRoughness=[0.0, 0.8]
+
+[large_black_alu]
+id = 3
+visibility_thresh_factor = 0.2
+
+[large_black_alu.Position]
+X = [-0.6, 0.6]
+X_normed_to_1m = 'Z'
+X_hide_on_intersection = true
+
+Y = [-0.3, 0.3]
+Y_normed_to_1m = 'Z'
+Y_hide_on_intersection = true
+
+Z = [-0.8, -0.5]
+Z_normed_to_1m = ''
+Z_hide_on_intersection = true
+
+[large_black_alu.Rotation]
+X = [-180, 180]
+Y = [-5, 5]
+Z = [-180, 180]
+
+[large_black_alu.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 360.0]
+value2 = [0.0, 0.1]
+value3 = [0.0, 0.2]
+mode = "hsv"
+material_name = ""
+
+[large_black_alu.PrincipledBSDF]
+Metallic=[0.4, 1.0]
+Specular=[0.2, 0.6]
+SpecularTint=[0.0, 0.6]
+Roughness=[0.6, 1.0]
+Anisotropic=[0.0, 0.9]
+AnisotropicRotation=[0.0, 0.9]
+Sheen=[0.0, 0.2]
+SheenTint=[0.0, 0.2]
+Clearcoat=[0.0, 0.8]
+ClearcoatRoughness=[0.0, 0.8]
+
+[large_grey_alu]
+id = 4
+visibility_thresh_factor = 0.2
+
+[large_grey_alu.Position]
+X = [-0.6, 0.6]
+X_normed_to_1m = 'Z'
+X_hide_on_intersection = true
+
+Y = [-0.3, 0.3]
+Y_normed_to_1m = 'Z'
+Y_hide_on_intersection = true
+
+Z = [-0.8, -0.5]
+Z_normed_to_1m = ''
+Z_hide_on_intersection = true
+
+[large_grey_alu.Rotation]
+X = [-10, 10]
+Y = [-5, 5]
+Z = [-180, 180]
+
+[large_grey_alu.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 360.0]
+value2 = [0.0, 0.05]
+value3 = [0.8, 1.0]
+mode = "hsv"
+material_name = ""
+
+[large_grey_alu.PrincipledBSDF]
+Metallic=[0.6, 0.9]
+Specular=[0.2, 0.6]
+SpecularTint=[0.0, 0.6]
+Roughness=[0.55, 0.8]
+Anisotropic=[0.0, 0.9]
+AnisotropicRotation=[0.0, 0.9]
+Sheen=[0.0, 0.2]
+SheenTint=[0.0, 0.2]
+Clearcoat=[0.0, 0.8]
+ClearcoatRoughness=[0.0, 0.8]
+
+[screw]
+id = 5
+visibility_thresh_factor = 0.1
+
+[screw.Position]
+X = [-0.65, 0.65]
+X_normed_to_1m = 'Z'
+X_hide_on_intersection = true
+
+Y = [-0.35, 0.35]
+Y_normed_to_1m = 'Z'
+Y_hide_on_intersection = true
+
+Z = [-0.8, -0.5]
+Z_normed_to_1m = ''
+Z_hide_on_intersection = true
+
+[screw.Rotation]
+X = [0, 0]
+Y = [0, 0]
+Z = [-180, 180]
+
+[screw.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 0.0]
+value2 = [0.0, 0.0]
+value3 = [0.0, 0.2]
+mode = "hsv"
+material_name = ""
+
+[screw.PrincipledBSDF]
+Metallic=[0.6, 1.0]
+Specular=[0.2, 0.6]
+SpecularTint=[0.0, 0.6]
+Roughness=[0.55, 0.8]
+Anisotropic=[0.0, 0.9]
+AnisotropicRotation=[0.0, 0.9]
+Sheen=[0.0, 0.2]
+SheenTint=[0.0, 0.2]
+Clearcoat=[0.0, 0.8]
+ClearcoatRoughness=[0.0, 0.8]
+
+
+
+[axis2]
+id = 8
+visibility_thresh_factor = 0.2
+X = [-10, 10]
+Y = [-5, 5]
+Z = [-180, 180]
+
+[axis2.Rotation]
+X = [-0, 0]
+Y = [-0, 0]
+Z = [-180, 180]
+
+[axis2.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 360.0]
+value2 = [0.2, 0.0]
+value3 = [0.6, 0.9]
+mode = "hsv"
+material_name = ""
+
+[axis2.PrincipledBSDF]
+Metallic=[0.4, 0.9]
+Specular=[0.2, 0.6]
+SpecularTint=[0.0, 0.6]
+Roughness=[0.1, 0.4]
+Anisotropic=[0.0, 0.9]
+AnisotropicRotation=[0.0, 0.9]
+Sheen=[0.0, 0.2]
+SheenTint=[0.0, 0.2]
+Clearcoat=[0.0, 0.8]
+ClearcoatRoughness=[0.0, 0.8]
+
+
+
+[spacer]
+id = 12
+visibility_thresh_factor = 0.2
+
+[spacer.Rotation]
+X = [-0, 0]
+Y = [-0, 0]
+Z = [-180, 180]
+
+[spacer.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 360.0]
+value2 = [0.0, 0.1]
+value3 = [0.65, 1.0]
+mode = "hsv"
+material_name = ""
+
+[spacer.PrincipledBSDF]
+Metallic=[0.0, 0.5]
+Specular=[0.2, 0.6]
+SpecularTint=[0.0, 0.6]
+Roughness=[0.4, 1.0]
+Anisotropic=[0.0, 0.9]
+AnisotropicRotation=[0.0, 0.9]
+Sheen=[0.0, 0.2]
+SheenTint=[0.0, 0.2]
+Clearcoat=[0.0, 0.8]
+ClearcoatRoughness=[0.0, 0.8]
+[allenkey]
+id = 16
+visibility_thresh_factor = 0.2
+
+[allenkey.Rotation]
+X = [-0, 0]
+Y = [-0, 0]
+Z = [-180, 180]
+
+[allenkey.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 360.0]
+value2 = [0.0, 0.1]
+value3 = [0.6, 0.9]
+mode = "hsv"
+material_name = ""
+
+[allenkey.PrincipledBSDF]
+Metallic=[0.7, 0.9]
+Specular=[0.2, 0.6]
+SpecularTint=[0.0, 0.6]
+Roughness=[0.15, 0.5]
+Anisotropic=[0.0, 0.9]
+AnisotropicRotation=[0.0, 0.9]
+Sheen=[0.0, 0.2]
+SheenTint=[0.0, 0.2]
+Clearcoat=[0.0, 0.8]
+ClearcoatRoughness=[0.0, 0.8]
+
+[screwdriver]
+id = 13
+visibility_thresh_factor = 0.2
+
+[screwdriver.Rotation]
+X = [-0, 0]
+Y = [-0, 0]
+Z = [-180, 180]
+
+[small_nut]
+id = 6
+visibility_thresh_factor = 0.2
+
+[small_nut.Position]
+X = [-0.65, 0.65]
+X_normed_to_1m = 'Z'
+X_hide_on_intersection = true
+
+Y = [-0.35, 0.35]
+Y_normed_to_1m = 'Z'
+Y_hide_on_intersection = true
+
+Z = [-0.8, -0.5]
+Z_normed_to_1m = ''
+Z_hide_on_intersection = true
+
+[small_nut.Rotation]
+X = [-10, 10]
+Y = [-5, 5]
+Z = [-180, 180]
+
+[small_nut.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 360.0]
+value2 = [0.0, 0.1]
+value3 = [0.1, 0.3]
+mode = "hsv"
+material_name = ""
+
+[small_nut.PrincipledBSDF]
+Metallic=[0.3, 0.6]
+Specular=[0.0, 0.2]
+SpecularTint=[0.0, 0.2]
+Roughness=[0.5, 0.8]
+Anisotropic=[0.0, 0.9]
+AnisotropicRotation=[0.0, 0.9]
+Sheen=[0.0, 0.2]
+SheenTint=[0.0, 0.2]
+Clearcoat=[0.0, 0.8]
+ClearcoatRoughness=[0.0, 0.8]
+
+[large_nut]
+id = 7
+visibility_thresh_factor = 0.2
+
+[large_nut.Position]
+X = [-0.65, 0.65]
+X_normed_to_1m = 'Z'
+X_hide_on_intersection = true
+
+Y = [-0.35, 0.35]
+Y_normed_to_1m = 'Z'
+Y_hide_on_intersection = true
+
+Z = [-0.8, -0.5]
+Z_normed_to_1m = ''
+Z_hide_on_intersection = true
+
+[large_nut.Rotation]
+X = [-10, 10]
+Y = [-5, 5]
+Z = [-180, 180]
+
+[large_nut.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 360.0]
+value2 = [0.0, 0.1]
+value3 = [0.1, 0.3]
+mode = "hsv"
+material_name = ""
+
+[large_nut.PrincipledBSDF]
+Metallic=[0.3, 0.6]
+Specular=[0.0, 0.2]
+SpecularTint=[0.0, 0.2]
+Roughness=[0.5, 0.8]
+Anisotropic=[0.0, 0.9]
+AnisotropicRotation=[0.0, 0.9]
+Sheen=[0.0, 0.2]
+SheenTint=[0.0, 0.2]
+Clearcoat=[0.0, 0.8]
+ClearcoatRoughness=[0.0, 0.8]
+
+[World]
+Backgrounds = "/home/florian/Desktop/DataGenAtworkSegmentation/hdris/"
+[World.Strength]
+Min = 0.6
+Max = 1.1
+
+[Path]
+PathObject = "Robot"
+
+[Mask]
+Mask_World = true
+
+# White
+Mask_False_Objects = "Barriertape"
+Mask_False_Mat = "Mask_False"
+Mask_False_Color = [1,1,1,1]
+
+# Black
+Mask_True_Objects=""
+Mask_True_Mat = "Mask_True"
+Mask_True_Color = [0,0,0,1]
+
+[Labels]
+small_black_alu= 0
+small_grey_alu= 1
+large_black_alu= 2 
+large_grey_alu= 3
+screw= 4
+small_nut= 5 
+large_nut= 6 
+axis2= 7
+spacer= 11
+allenkey = 15
+screwdriver= 12
+
