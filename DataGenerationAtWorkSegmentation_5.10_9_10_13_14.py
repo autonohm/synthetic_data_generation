@@ -41,7 +41,7 @@ from Modifications.ShuffleVector import ShuffleVector
 from Modifications.MeshMods import CreateHull
 
 ## Global variables cause things are getting messy 
-base_config = "/home/florian/Desktop/DataGenAtworkSegmentation/configAtWork_123456.toml"
+base_config = "/home/florian/Desktop/DataGenAtworkSegmentation/configAtWork_9_10_13_14.toml"
 config = toml.load(base_config)
 
 def hide_obj_and_children(obj):
@@ -66,10 +66,10 @@ def calcVisibilityThresh(obj, config):
 def hideInvisibleObjects(scene, camera_object, visibility_camera, mesh_objects, config):
 	print ("visibility checks disabled")
 	# for object in mesh_objects:
-	# 	if object.hide_render == True:
-	# 		print(object.name + " is hidden - not labeling this and hiding all children!")
-	# 		hide_obj_and_children(object)
-	# 		continue
+	#   if object.hide_render == True:
+	#   	print(object.name + " is hidden - not labeling this and hiding all children!")
+	#   	hide_obj_and_children(object)
+	#   	continue
 		
 		
 		# if "visibility_thresh_factor" in config[object.name]:
@@ -485,7 +485,7 @@ def createObjectMods(objects, config):
 			print( "Placed Object NR.4:", obj.name, "X:", x , "Y:", y)
 		already_placed_objects+=1
 			
-		#Debug Output	
+		#Debug Output   
 		#print ("placing: ", obj.name,"already_placed_objects:", already_placed_objects, "x:", x, " y:",y)
 			
 		
@@ -495,32 +495,52 @@ def createObjectMods(objects, config):
 		modYPos = ShuffleYPos([y, y], obj_list, True, False)
 		mods.append(modYPos)
 		
-
+		print ("War hier 1")
 		if "Rotation" in config[obj.name]:
 
 			print(config[obj.name]["Rotation"])
-			try:
-				if config[obj.name]["Rotation"]["mode"] == "Quaternion":
-						modQuatRot = ShuffleRotQuaternion(config[obj.name]["Rotation"]["X"],config[obj.name]["Rotation"]["Y"], config[obj.name]["Rotation"]["Z"], obj_list, False)
-						mods.append(modQuatRot)
-						print("Using quaternions for ", obj.name)
-			except:
-				# modZRot = ShuffleZRotEuler([0,0], obj_list, False)
-				# mods.append(modZRot)
-				# modYRot = ShuffleYRotEuler([0,0], obj_list, False)
-				# mods.append(modYRot)
-				# modXRot = ShuffleXRotEuler([0,0], obj_list, False)
-				# mods.append(modXRot)
-				# print("Using axis rotation for ", obj.name)
-				modZRot = ShuffleZRotEuler(config[obj.name]["Rotation"]["Z"], obj_list, False)
-				mods.append(modZRot)
-				modYRot = ShuffleYRotEuler(config[obj.name]["Rotation"]["Y"], obj_list, False)
-				mods.append(modYRot)
+			# try:
+			#   if config[obj.name]["Rotation"]["mode"] == "Quaternion":
+			#   		modQuatRot = ShuffleRotQuaternion(config[obj.name]["Rotation"]["X"],config[obj.name]["Rotation"]["Y"], config[obj.name]["Rotation"]["Z"], obj_list, False)
+			#   		mods.append(modQuatRot)
+			#   		print("Using quaternions for ", obj.name)
+			# except:
+			#   # modZRot = ShuffleZRotEuler([0,0], obj_list, False)
+			#   # mods.append(modZRot)
+			#   # modYRot = ShuffleYRotEuler([0,0], obj_list, False)
+			#   # mods.append(modYRot)
+			#   # modXRot = ShuffleXRotEuler([0,0], obj_list, False)
+			#   # mods.append(modXRot)
+			#   # print("Using axis rotation for ", obj.name)
+				
+				
+			modZRot = ShuffleZRotEuler(config[obj.name]["Rotation"]["Z"], obj_list, False)
+			mods.append(modZRot)
+			
+			modYRot = ShuffleYRotEuler(config[obj.name]["Rotation"]["Y"], obj_list, False)
+			mods.append(modYRot)
+			print ("War hier 2")
+			randomnumber = random.uniform(0,1)
+			if obj.name == "wrench" and randomnumber < 0.5 :
+				rotation = config[obj.name]["Rotation"]["X"]
+				rotation1 = rotation[0] + 180
+				rotation2 = rotation[1] + 180
+				rotation3 = range (rotation1, rotation2)
+				
+				modXRot = ShuffleXRotEuler( rotation3, obj_list, False) 
+				print("War hier 3:", rotation [1] )
+			else:
 				modXRot = ShuffleXRotEuler(config[obj.name]["Rotation"]["X"], obj_list, False)
-				mods.append(modXRot)
-				print("Using axis rotation for ", obj.name)
+			mods.append(modXRot)
+			print("Using axis rotation for ", obj.name)
 
+		if "BrickTexture" in config[obj.name]:
+			print("BrickTexture for ", obj.name)
+			for key in config[obj.name]["BrickTexture"]:
+				modBrickTexture = ShuffleMaterialProperties(obj_list, "Brick Texture", config[obj.name]["BrickTexture"][key]["PropertyName"], config[obj.name]["BrickTexture"][key]["value"])
+				mods.append(modBrickTexture)
 		
+
 
 		if "PrincipledBSDF" in config[obj.name]:
 			
@@ -548,12 +568,7 @@ def createObjectMods(objects, config):
 			modClearcoatRoughness = ShuffleMaterialProperties(obj_list, "Principled BSDF", "Clearcoat Roughness", config[obj.name]["PrincipledBSDF"]["ClearcoatRoughness"])
 			mods.append(modClearcoatRoughness)
 
-		if "BrickTexture" in config[obj.name]:
-			print("BrickTexture for ", obj.name)
-			for key in config[obj.name]["BrickTexture"]:
-				modBrickTexture = ShuffleMaterialProperties(obj_list, "Brick Texture", config[obj.name]["BrickTexture"][key]["PropertyName"], config[obj.name]["BrickTexture"][key]["value"])
-				mods.append(modBrickTexture)
-
+		
 		if "Mapping" in config[obj.name]:
 			print("Mapping for ", obj.name)
 			for key in config[obj.name]["Mapping"]:

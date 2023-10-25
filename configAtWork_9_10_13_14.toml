@@ -1,0 +1,244 @@
+[General]
+Steps = 4000
+Camera = "Camera"
+Visibility_Check = "Camera.001"
+Scene = "Scene"
+ShuffleWorld = true
+CreateYoloLabels = true
+CreateSegmentationMask = true
+AnimateAlongPath = false
+# creates images for every single object and stores them in seperate folders 
+SingleObjects = false
+CheckVisibility = true
+
+[Files]
+Folder = "Test_CPU"
+
+[Config]
+MultiConfig = false
+Folder = "configs"
+
+
+[Objects]
+Names= ""
+Ignore= ["Camera","CameraLight", 'Camera.001', 'workstation_border','Plane','Area','Plane.001']
+Lamps = ""
+Camera = "Camera"
+Special= ""#["workstation"]         #["shelve4","shelve3","shelve2","shelve1"]
+Decoy= ""#["nadelbaum"]  #"[laubbaum", "nadelbaum", "workstation"] 
+
+[laubbaum]
+[laubbaum.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 1.0]
+value2 = [0.0, 1.0]
+value3 = [0.0, 1.0]
+mode = "hsv"
+material_name = ""
+
+[laubbaum.PrincipledBSDF]
+Metallic=[0.0, 0.6]
+Specular=[0.1, 0.9]
+SpecularTint=[0.1, 0.9]
+Roughness=[0.1, 0.9]
+Anisotropic=[0.0, 0.9]
+AnisotropicRotation=[0.0, 0.9]
+Sheen=[0.0, 0.9]
+SheenTint=[0.0, 0.8]
+Clearcoat=[0.0, 0.8]
+ClearcoatRoughness=[0.0, 0.8]
+
+[laubbaum.Rotation]
+X = [-5, 5]
+Y = [-5, 5]
+Z = [-10, 10]
+
+[nadelbaum]
+[nadelbaum.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 1.0]
+value2 = [0.0, 1.0]
+value3 = [0.0, 1.0]
+mode = "hsv"
+material_name = ""
+
+[nadelbaum.PrincipledBSDF]
+Metallic=[0.0, 0.6]
+Specular=[0.1, 0.9]
+SpecularTint=[0.1, 0.9]
+Roughness=[0.1, 0.9]
+Anisotropic=[0.0, 0.9]
+AnisotropicRotation=[0.0, 0.9]
+Sheen=[0.0, 0.9]
+SheenTint=[0.0, 0.8]
+Clearcoat=[0.0, 0.8]
+ClearcoatRoughness=[0.0, 0.8]
+
+[nadelbaum.Rotation]
+X = [-5, 5]
+Y = [-5, 5]
+Z = [-45, 45]
+
+[housing]
+id= 10
+visibility_thresh_factor = 0.2
+
+[housing.Rotation]
+X = [-10, 10]
+Y = [-5, 5]
+Z = [-180, 180]
+
+[housing.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 1.0]
+value2 = [0.0, 0.06]
+value3 = [0.55, 0.8]
+mode = "hsv"
+material_name = ""
+
+[housing.PrincipledBSDF]
+Metallic=[0.5, 1.0]
+Specular=[0.1, 0.9]
+SpecularTint=[0.1, 0.9]
+Roughness=[0.25, 0.5]
+Anisotropic=[0.0, 0.9]
+AnisotropicRotation=[0.0, 0.9]
+Sheen=[0.0, 0.9]
+SheenTint=[0.0, 0.8]
+Clearcoat=[0.0, 0.8]
+ClearcoatRoughness=[0.0, 0.8]
+
+[motor2]
+id = 11
+visibility_thresh_factor = 0.2
+
+[motor2.Rotation]
+X = [-10, 10]
+Y = [-5, 5]
+Z = [-180, 180]
+
+[motor2.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 1.0]
+value2 = [0.0, 0.05]
+value3 = [0.4, 0.62]
+mode = "hsv"
+material_name = ""
+
+[motor2.PrincipledBSDF]
+Metallic=[0.6, 0.9]
+Specular=[0.1, 0.9]
+SpecularTint=[0.1, 0.9]
+Roughness=[0.35, 0.55]				
+Anisotropic=[0.0, 0.9]
+AnisotropicRotation=[0.0, 0.9]
+Sheen=[0.0, 0.9]
+SheenTint=[0.0, 0.8]
+Clearcoat=[0.0, 0.8]
+ClearcoatRoughness=[0.0, 0.8]
+
+[wrench]
+id = 14
+visibility_thresh_factor = 0.2
+
+[wrench.Rotation]
+X = [-10, 10]
+Y = [-5, 5]
+Z = [-180, 180]
+
+[wrench.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 1.0]
+value2 = [0.0, 0.05]
+value3 = [0.4, 0.75]
+mode = "hsv"
+material_name = "grey"
+
+[wrench.PrincipledBSDF]
+Metallic=[0.0, 0.1]
+Specular=[0.1, 0.9]
+SpecularTint=[0.1, 0.9]
+Roughness=[0.25, 0.5]
+Anisotropic=[0.0, 0.9]
+AnisotropicRotation=[0.0, 0.9]
+Sheen=[0.0, 0.9]
+SheenTint=[0.0, 0.8]
+Clearcoat=[0.0, 0.8]
+ClearcoatRoughness=[0.0, 0.8]
+
+[drill]
+id = 15
+visibility_thresh_factor = 0.2
+
+[drill.Rotation]
+X = [-10, 10]
+Y = [-5, 5]
+Z = [-180, 180]
+
+
+[drill.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.17, 0.13]
+value2 = [0.2, 0.35]
+value3 = [0.45, 0.63]
+mode = "hsv"
+material_name = "gold"
+
+[drill.PrincipledBSDF]
+Metallic=[0.6, 1.0]
+Specular=[0.1, 0.9]
+SpecularTint=[0.1, 0.9]
+Roughness=[0.1, 0.4]
+Anisotropic=[0.0, 0.9]
+AnisotropicRotation=[0.0, 0.9]
+Sheen=[0.0, 0.9]
+SheenTint=[0.0, 0.8]
+Clearcoat=[0.0, 0.8]
+ClearcoatRoughness=[0.0, 0.8]
+
+[World]
+Backgrounds = "/home/florian/Desktop/DataGenAtworkSegmentation/hdris/"
+[World.Strength]
+Min = 0.7
+Max = 1.25
+
+[Path]
+PathObject = "Robot"
+
+[Mask]
+Mask_World = true
+
+# White
+Mask_False_Objects = "Barriertape"
+Mask_False_Mat = "Mask_False"
+Mask_False_Color = [1,1,1,1]
+
+# Black
+Mask_True_Objects=""
+Mask_True_Mat = "Mask_True"
+Mask_True_Color = [0,0,0,1]
+
+[Labels]
+small_black_alu= 0
+small_grey_alu= 1
+large_black_alu= 2 
+large_grey_alu= 3
+screw= 4
+small_nut= 5 
+large_nut= 6 
+axis2= 7
+housing= 9 
+motor2= 10
+spacer= 11
+screwdriver= 12
+wrench = 13
+drill = 14
+allenkey = 15
+
+
