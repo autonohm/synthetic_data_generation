@@ -1,0 +1,43 @@
+[Files]
+Folder = "1"
+
+[Palette]
+id = 100
+visibility_thresh_factor =0.5
+
+[Palette.Position]
+X = [-0.6, 0.6]
+X_normed_to_1m = true
+X_hide_on_intersection = false
+
+Y = [-0.5, 0.5]
+Y_normed_to_1m = true
+Y_hide_on_intersection = false
+
+Z = [-1.0, -0.8]
+Z_hide_on_intersection = false
+
+[Palette.Rotation]
+X = [-25, 25]
+Y = [-25, 25]
+Z = [-25, 25]
+
+[Palette.Color]
+NodeName="Principled BSDF"
+PropertyName="Base Color"
+value1 = [0.0, 1.0]
+value2 = [0.0, 0.1]
+value3 = [0.8, 1.0]
+mode = "hsv"
+
+[Palette.PrincipledBSDF]
+Metallic=[0.0, 0.3]
+Specular=[0.1, 0.9]
+SpecularTint=[0.0, 0.9]
+Roughness=[0.1, 0.9]
+Anisotropic=[0.0, 0.9]
+AnisotropicRotation=[0.0, 0.9]
+Sheen=[0.0, 0.9]
+SheenTint=[0.0, 0.8]
+Clearcoat=[0.0, 0.8]
+ClearcoatRoughness=[0.0, 0.8]

@@ -1,11 +1,7 @@
-*.jpg
-*.txt
-
-
 *.txt 
 *.png
-*.blend
 *.blend*
+
 *.ply
 __pycache__/
 stls/

@@ -41,7 +41,7 @@ from Modifications.ShuffleVector import ShuffleVector
 from Modifications.MeshMods import CreateHull
 
 ## Global variables cause things are getting messy 
-base_config = "/home/florian/Desktop/DataGenAtworkSegmentation/configAtWork_123456.toml"
+base_config = "/home/florian/Desktop/DataGenAtworkSegmentation/configAtWork_6obj.toml"
 config = toml.load(base_config)
 
 def hide_obj_and_children(obj):
@@ -457,10 +457,10 @@ def createObjectMods(objects, config):
 	objects_to_place = 4
 	already_placed_objects = 0
 	#lenght of the largest object is 20,5 cm
-	print ("Objekt Liste = ", obj_list_random)
+
 
 	for obj in obj_list_random:
-		x= -2
+		x= random.uniform(100,1000)
 		y = x
 
 		obj_list = list()
@@ -468,22 +468,22 @@ def createObjectMods(objects, config):
 
 		modZPos = ShuffleZPos([-distance_z, -distance_z], obj_list, True, False)
 		mods.append(modZPos)
-		
-		#if obj.name != "nadelbaum":
-		if already_placed_objects==0:
-			x = -object_position_x; y = object_position_y; 
-			
-			print( "Placed Object NR.1:", obj.name, "X:", x , "Y:", y)
-		elif already_placed_objects==1:
-			x = object_position_x; y = object_position_y; 
-			print( "Placed Object NR.2:", obj.name,"X:", x , "Y:", y)
-		elif already_placed_objects==2:
-			x = -object_position_x; y = -object_position_y; 
-			print( "Placed Object NR.3:", obj.name, "X:", x , "Y:", y)
-		elif already_placed_objects==3:
-			x = + object_position_x; y = - object_position_y
-			print( "Placed Object NR.4:", obj.name, "X:", x , "Y:", y)
-		already_placed_objects+=1
+
+		if obj.name != "nadelbaum":
+			if already_placed_objects==0:
+				x = -object_position_x; y = object_position_y; 
+				
+				print( "Placed Object NR.1:", obj.name)
+			elif already_placed_objects==1:
+				x = object_position_x; y = object_position_y; 
+				print( "Placed Object NR.2:", obj.name)
+			elif already_placed_objects==2:
+				x = -object_position_x; y = -object_position_y; 
+				print( "Placed Object NR.3:", obj.name)
+			elif already_placed_objects==3:
+				x = + object_position_x; y = - object_position_y
+				print( "Placed Object NR.4:", obj.name)
+			already_placed_objects+=1
 			
 		#Debug Output	
 		#print ("placing: ", obj.name,"already_placed_objects:", already_placed_objects, "x:", x, " y:",y)

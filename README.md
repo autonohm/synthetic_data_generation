@@ -1,5 +1,19 @@
-# synthetic_data_generation
-This repository contains our environment for synthetic data generation - used to train neural networks for object detection. The current object set is for RoboCup@Work perception, but might be adjusted to anyones needs.
-For more info check: https://github.com/ItsMeTheBee/DataGeneration
+# flo_data_generation_robo_cup
 
-Test
+blender version 2.82
+
+welches Objekt welche Label ID hat kann in 
+class_list.txt nachgeschaut werden.
+
+welche Bilder von welchen Objekten mit welchen Dateien erzeugt wurde (BA-Arbeit flo)
+siehe: object_config_zusammenhang.ods
+
+Die entsprechenden Objekte in "Table_seprarate_6_obj.blend" kopieren, alle Objekte können in "Table_seprarate_all_objects.blend"
+gefunden werden. 
+In Blender das Skript "DataGenerationAtWorkSegmentation_5.10.py" und in Zeile 44 den entsprechenden config file auswählen.
+Die geladenen Objekte müssen zu den config.toml-Files passen.
+
+
+zum Starten: 
+"blender" in die Komando Zeile eingeben, dann ist der Output des Skriptes sichtbar.
+

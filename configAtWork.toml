@@ -71,6 +71,13 @@ SheenTint=[0.0, 0.8]
 Clearcoat=[0.0, 0.8]
 ClearcoatRoughness=[0.0, 0.8]
 
+[nadelbaum.Position]
+X = [-0.2, 0.2]
+Y = [-0.2, 0.2]
+
+[nadelbaum.Rotation]
+Z = [-180, 180]
+
 [workstation]
 id = 18
 ShuffleMaterials = true
@@ -153,8 +160,8 @@ Z = [-180, 180]
 [small_black_alu.Color]
 NodeName="Principled BSDF"
 PropertyName="Base Color"
-value1 = [0.0, 0.0]
-value2 = [0.0, 0.0]
+value1 = [0.0, 360.0]
+value2 = [0.0, 0.2]
 value3 = [0.0, 0.2]
 mode = "hsv"
 material_name = ""
@@ -432,38 +439,87 @@ ClearcoatRoughness=[0.0, 0.8]
 [axis2]
 id = 8
 visibility_thresh_factor = 0.2
+X = [-10, 10]
+Y = [-5, 5]
+Z = [-180, 180]
+
+[axis2.Rotation]
+X = [-10, 10]
+Y = [-5, 5]
+Z = [-180, 180]
+
 
 [bearing2]
 id = 9
 visibility_thresh_factor = 0.2
 
+[bearing2.Rotation]
+X = [-10, 10]
+Y = [-5, 5]
+Z = [-180, 180]
+
 [housing]
 id= 10
 visibility_thresh_factor = 0.2
+
+[housing.Rotation]
+X = [-10, 10]
+Y = [-5, 5]
+Z = [-180, 180]
 
 [motor2]
 id = 11
 visibility_thresh_factor = 0.2
 
+[motor2.Rotation]
+X = [-10, 10]
+Y = [-5, 5]
+Z = [-180, 180]
+
 [spacer]
 id = 12
 visibility_thresh_factor = 0.2
+
+[spacer.Rotation]
+X = [-10, 10]
+Y = [-5, 5]
+Z = [-180, 180]
 
 [screwdriver]
 id = 13
 visibility_thresh_factor = 0.2
 
+[screwdriver.Rotation]
+X = [-10, 10]
+Y = [-5, 5]
+Z = [-180, 180]
+
 [wrench]
 id = 14
 visibility_thresh_factor = 0.2
+
+[wrench.Rotation]
+X = [-10, 10]
+Y = [-5, 5]
+Z = [-180, 180]
 
 [drill]
 id = 15
 visibility_thresh_factor = 0.2
 
+[drill.Rotation]
+X = [-10, 10]
+Y = [-5, 5]
+Z = [-180, 180]
+
 [allenkey]
 id = 16
 visibility_thresh_factor = 0.2
+
+[allenkey.Rotation]
+X = [-10, 10]
+Y = [-5, 5]
+Z = [-180, 180]
 
 [blue_container]
 id = 17
